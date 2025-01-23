@@ -1,18 +1,11 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import localFont from 'next/font/local'
+import { Inter, Inconsolata, Roboto } from 'next/font/google'
 import Navbar from '@/components/Navbar'
 
-const geistSans = localFont({
-  src: './fonts/GeistVF.woff',
-  variable: '--font-geist-sans',
-  weight: '100 900'
-})
-const geistMono = localFont({
-  src: './fonts/GeistMonoVF.woff',
-  variable: '--font-geist-mono',
-  weight: '100 900'
-})
+const inter = Inter({ subsets: ['latin'] })
+const inconsolate = Inconsolata({ subsets: ['latin'] })
+const roboto = Roboto({ subsets: ['latin'], weight: ['400'] })
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -26,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={roboto.className}>
         <Navbar />
         <main className="max-w-3xl mx-auto py-10">{children}</main>
       </body>
