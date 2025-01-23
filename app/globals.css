@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  background: gainsboro;
-}
-
 /* :root {
   --background: #ffffff;
   --foreground: #171717;
