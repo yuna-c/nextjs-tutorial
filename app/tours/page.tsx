@@ -31,7 +31,14 @@ async function ToursPage() {
           return (
             <Link key={tour.id} href={`/tours/${tour.id}`} className="hover:text-blue-500">
               <div className="relative h-48 mb-2">
-                <Image src={tour.image} alt={tour.name} fill /*이미지가 부모 요소의 크기에 맞춰 꽉 채워짐, 부모 relative 필수*/ sizes="100vw" priority/*우선적으로 로드*/ className="object-cover rounded" />
+                <Image
+                  src={tour.image}
+                  alt={tour.name}
+                  fill
+                  /*이미지가 부모 요소의 크기에 맞춰 꽉 채워짐, 부모 relative 필수*/ sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw"
+                  priority
+                  /*우선적으로 로드*/ className="object-cover rounded"
+                />
               </div>
               <h2>{tour.name}</h2>
             </Link>
