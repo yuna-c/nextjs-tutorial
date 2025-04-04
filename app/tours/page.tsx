@@ -35,7 +35,7 @@ async function ToursPage() {
                   src={tour.image}
                   alt={tour.name}
                   fill
-                  /*이미지가 부모 요소의 크기에 맞춰 꽉 채워짐, 부모 relative 필수*/ sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw"
+                  /*이미지가 부모 요소의 크기에 맞춰 꽉 채워짐, 부모 relative 필수*/ sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw"
                   priority
                   /*우선적으로 로드*/ className="object-cover rounded"
                 />
