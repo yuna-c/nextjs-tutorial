@@ -1,4 +1,4 @@
-const SignInPage = ({ params }: { params: { 'sign-in': string } }) => {
+const SignInPage = ({ params }: { params: { 'sign-in': string[] } }) => {
   console.log(params)
   return <div>SignInPage</div>
 }
