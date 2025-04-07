@@ -1,14 +1,13 @@
-const createUser = async () => {
-  'use server'
-  console.log('creating User...')
-}
+'use client'
+
+import { createUser } from '@/app/utils/actions'
 
 function Form() {
   return (
     <form action={createUser} className={formStyle}>
       <h2 className="text-2xl capitalize mb-4">create user</h2>
       <input type="text" name="firstName" defaultValue="peter" required className={inputStyle} />
-      <input type="text" name="LastName" defaultValue="smith" required className={inputStyle} />
+      <input type="text" name="lastName" defaultValue="smith" required className={inputStyle} />
       <button type="submit" className={btnStyle}>
         submit
       </button>
