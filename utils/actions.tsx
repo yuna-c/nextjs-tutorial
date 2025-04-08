@@ -1,5 +1,7 @@
 'use server'
 import { readFile, writeFile } from 'fs/promises'
+// 서버 전용 유틸 함수
+import { revalidatePath } from 'next/cache' //캐시 무효화, 해당 경로를 다시 렌더링( (SSR/ISR 재실행)
 
 type User = {
   id: string
@@ -15,6 +17,7 @@ export const createUser = async (formData: FormData) => {
 
   // console.log({ firstName, lastName })
   await saveUser(newUser)
+  revalidatePath('/actions')
 }
 
 export const fetchUsers = async (): Promise<User[]> => {
