@@ -1,6 +1,6 @@
 'use client'
 
-import { createUser } from '@/app/utils/actions'
+import { createUser } from '@/utils/actions'
 
 function Form() {
   return (
