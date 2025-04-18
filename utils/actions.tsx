@@ -1,8 +1,8 @@
 'use server'
 import { readFile, writeFile } from 'fs/promises'
 // 서버 전용 유틸 함수
-// import { revalidatePath } from 'next/cache' //캐시 무효화, 해당 경로를 다시 렌더링( (SSR/ISR 재실행)
-import { redirect } from 'next/navigation' //서버 액션 또는 서버 컴포넌트에서 리다이렉트 경로 이동(페이지 전환)
+import { revalidatePath } from 'next/cache' //캐시 무효화, 해당 경로를 다시 렌더링(SSR/ISR 재실행)
+// import { redirect } from 'next/navigation' //서버 액션 또는 서버 컴포넌트에서 리다이렉트 경로 이동(페이지 전환)
 
 type User = {
   id: string
@@ -12,6 +12,8 @@ type User = {
 
 export const createUser = async (formData: FormData) => {
   'use server'
+  await new Promise((resolve) => setTimeout(resolve, 3000))
+
   const firstName = formData.get('firstName') as string
   const lastName = formData.get('lastName') as string
   const newUser: User = { firstName, lastName, id: Date.now().toString() }
@@ -19,11 +21,12 @@ export const createUser = async (formData: FormData) => {
   // console.log({ firstName, lastName })
   try {
     await saveUser(newUser)
+    revalidatePath('/actions')
     // some logic
   } catch (error) {
     console.log(error)
   }
-  redirect('/')
+  // redirect('/')
   // revalidatePath('/actions')
 }
 
