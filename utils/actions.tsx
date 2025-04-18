@@ -10,7 +10,7 @@ type User = {
   lastName: string
 }
 
-export const createUser = async (prevState: any, formData: FormData) => {
+export const createUser = async (prevState: unknown, formData: FormData) => {
   'use server'
   console.log(prevState)
 
