@@ -1,8 +1,11 @@
-export function middleware() {
-  // console.log('hello crise')
-  return Response.json({ msg: 'hello crise' })
+import { NextResponse } from 'next/server'
+
+export function middleware(request: Request) {
+  console.log('hello crise')
+  // return Response.json({ msg: 'hello crise' })
+  return NextResponse.redirect(new URL('/', request.url))
 }
 
 export const config = {
-  matcher: '/about'
+  matcher: ['/about/:path*', '/tours/:path*']
 }
